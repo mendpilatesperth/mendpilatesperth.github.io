@@ -1,13 +1,57 @@
 document.addEventListener('DOMContentLoaded', ()=>{
   const buttons = document.querySelectorAll('.menu-btn')
+  const mobileMenuBtns = document.querySelectorAll('.mobile-menu-btn')
+  const hamburgerBtn = document.querySelector('.hamburger-btn')
+  const mobileMenu = document.getElementById('mobile-menu')
   const pages = document.querySelectorAll('.page')
 
+  // Handle desktop menu buttons
   buttons.forEach(btn=>{
     btn.addEventListener('click', ()=>{
       const target = btn.dataset.target
       setActive(target)
     })
   })
+
+  // Handle mobile menu buttons
+  mobileMenuBtns.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const target = btn.dataset.target
+      setActive(target)
+      closeHamburgerMenu()
+    })
+  })
+
+  // Handle hamburger button toggle
+  if(hamburgerBtn){
+    hamburgerBtn.addEventListener('click', ()=>{
+      toggleHamburgerMenu()
+    })
+  }
+
+  function toggleHamburgerMenu(){
+    if(!hamburgerBtn || !mobileMenu) return
+    const isOpen = mobileMenu.classList.contains('open')
+    if(isOpen){
+      closeHamburgerMenu()
+    } else {
+      openHamburgerMenu()
+    }
+  }
+
+  function openHamburgerMenu(){
+    if(!hamburgerBtn || !mobileMenu) return
+    mobileMenu.classList.add('open')
+    hamburgerBtn.classList.add('open')
+    hamburgerBtn.setAttribute('aria-expanded', 'true')
+  }
+
+  function closeHamburgerMenu(){
+    if(!hamburgerBtn || !mobileMenu) return
+    mobileMenu.classList.remove('open')
+    hamburgerBtn.classList.remove('open')
+    hamburgerBtn.setAttribute('aria-expanded', 'false')
+  }
 
   // set active page and button, persist selection and update hash
   function setActive(target){
