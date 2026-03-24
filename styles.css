@@ -59,12 +59,10 @@ img{filter:grayscale(20%) contrast(95%)}
 
 #about ul, #about li {
   color: var(--muted);
-  line-height: 1.6;
 }
 
 #about strong {
   color: var(--muted);
-  line-height: 1.6;
 }
 
 img[src$="MendPilates-8.jpg"]{float:left;max-width:400px;width:40%;min-width:180px;height:auto;display:block;margin-right:18px;margin-bottom:12px;border-radius:8px}
