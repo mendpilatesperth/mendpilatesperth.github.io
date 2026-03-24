@@ -1,11 +1,28 @@
 document.addEventListener('DOMContentLoaded', ()=>{
   const buttons = document.querySelectorAll('.menu-btn')
   const pages = document.querySelectorAll('.page')
+  const hamburgerBtn = document.querySelector('.hamburger-btn')
+  const topMenu = document.querySelector('.top-menu')
+
+  // Hamburger menu toggle
+  if(hamburgerBtn){
+    hamburgerBtn.addEventListener('click', ()=>{
+      hamburgerBtn.classList.toggle('active')
+      topMenu.classList.toggle('active')
+      hamburgerBtn.setAttribute('aria-expanded', hamburgerBtn.classList.contains('active'))
+    })
+  }
 
   buttons.forEach(btn=>{
     btn.addEventListener('click', ()=>{
       const target = btn.dataset.target
       setActive(target)
+      // Close mobile menu after selection
+      if(hamburgerBtn && hamburgerBtn.classList.contains('active')){
+        hamburgerBtn.classList.remove('active')
+        topMenu.classList.remove('active')
+        hamburgerBtn.setAttribute('aria-expanded', 'false')
+      }
     })
   })
 

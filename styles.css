@@ -9,6 +9,11 @@ html,body{height:100%;margin:0;font-family:Montserrat,system-ui,Segoe UI,Helveti
 .site-header{position:static;z-index:50}
 .banner{display:flex;align-items:center;justify-content:space-between;padding:12px var(--gap);position:fixed;top:0;left:0;right:0;z-index:60;background:linear-gradient(0deg,rgba(255,255,255,0.95),rgba(255,255,255,0.9));backdrop-filter:blur(4px);border-bottom:1px solid rgba(0,0,0,0.06)}
 .logo svg{display:block}
+.hamburger-btn{display:none;flex-direction:column;gap:5px;background:transparent;border:none;cursor:pointer;padding:8px;align-items:center;justify-content:center}
+.hamburger-btn span{width:24px;height:2px;background:var(--fg);transition:all .3s ease;display:block}
+.hamburger-btn.active span:nth-child(1){transform:rotate(45deg) translate(8px,8px)}
+.hamburger-btn.active span:nth-child(2){opacity:0}
+.hamburger-btn.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
 .top-menu{display:flex;gap:10px}
 .top-menu .menu-link{padding:8px 12px;display:inline-block;border-radius:6px;transition:background-color .15s ease;font-family:Montserrat,sans-serif;font-weight:500}
 .menu-btn{background:transparent;border:none;color:var(--fg);padding:8px 12px;font-size:16px;cursor:pointer;opacity:0.8;transition:background-color .15s ease, opacity .15s ease;font-family:Montserrat,sans-serif;font-weight:500}
@@ -80,11 +85,14 @@ img[src$="MendPilates-8.jpg"]{float:left;max-width:400px;width:40%;min-width:180
 
 /* Small screens and phones */
 @media (max-width:768px){
-  .banner{padding:8px var(--gap);position:fixed;top:0;left:0;right:0;z-index:60;background:linear-gradient(0deg,rgba(255,255,255,0.95),rgba(255,255,255,0.9));backdrop-filter:blur(4px);border-bottom:1px solid rgba(0,0,0,0.06)}
-  .logo{flex-shrink:0}
-  .top-menu{gap:4px;flex-wrap:wrap}
-  .menu-btn{padding:6px 10px;font-size:14px;min-height:44px;min-width:44px;display:flex;align-items:center;justify-content:center}
-  .menu-btn.active{border-bottom:2px solid var(--fg);padding-bottom:4px}
+  .banner{padding:8px var(--gap);position:fixed;top:0;left:0;right:0;z-index:60;background:linear-gradient(0deg,rgba(255,255,255,0.95),rgba(255,255,255,0.9));backdrop-filter:blur(4px);border-bottom:1px solid rgba(0,0,0,0.06);flex-wrap:wrap}
+  .logo{flex-shrink:0;flex:0 1 auto}
+  .hamburger-btn{display:flex}
+  .top-menu{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid rgba(0,0,0,0.06);max-height:0;overflow:hidden;transition:max-height .3s ease;z-index:50}
+  .top-menu.active{max-height:500px;padding:8px 0}
+  .menu-btn{width:100%;padding:12px var(--gap);font-size:14px;min-height:44px;border:none;border-radius:0;text-align:left;border-bottom:1px solid rgba(0,0,0,0.03);opacity:1}
+  .menu-btn:hover{background:rgba(0,0,0,0.04)}
+  .menu-btn.active{border-bottom:none;border-left:3px solid var(--fg);padding-left:calc(var(--gap) - 3px);background:rgba(0,0,0,0.02)}
   .content{padding-top:8px}
   h1{font-size:clamp(20px,5vw,28px)}
   h2{font-size:18px}
@@ -104,9 +112,11 @@ img[src$="MendPilates-8.jpg"]{float:left;max-width:400px;width:40%;min-width:180
 @media (max-width:480px){
   .banner{padding:8px 12px}
   .logo svg{height:clamp(60px, 10vw, 100px)!important}
-  .top-menu{gap:2px}
-  .menu-btn{padding:4px 8px;font-size:12px;min-height:40px;border:none}
-  .menu-btn.active{border-bottom:2px solid var(--fg);padding-bottom:2px}
+  .hamburger-btn{padding:6px}
+  .hamburger-btn span{width:20px;height:2px}
+  .top-menu{max-height:0}
+  .top-menu.active{max-height:500px}
+  .menu-btn{padding:12px 12px;font-size:13px;min-height:40px}
   .content{margin:12px auto;padding:0 12px;padding-top:80px}
   g:root{--gap:clamp(12px,4vw,16px)}
   h1{font-size:clamp(18px,6vw,24px);margin-bottom:12px}
