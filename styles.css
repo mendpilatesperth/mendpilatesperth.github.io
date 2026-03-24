@@ -102,6 +102,7 @@ img[src$="MendPilates-8.jpg"]{float:left;max-width:400px;width:40%;min-width:180
   h2{font-size:18px}
   p{font-size:14px;line-height:1.5}
   ul, li{font-size:14px;line-height:1.5}
+  strong{font-size:14px;line-height:1.5}
   .hero{margin-bottom:20px}
   .hero > img{width:100%;margin-right:0}
   .hero-text img{width:100%;margin-left:0}
@@ -127,6 +128,7 @@ img[src$="MendPilates-8.jpg"]{float:left;max-width:400px;width:40%;min-width:180
   h2{font-size:16px;margin-bottom:6px}
   p{font-size:13px;line-height:1.5}
   ul, li{font-size:13px;line-height:1.5}
+  strong{font-size:13px;line-height:1.5}
   .hero{margin-bottom:16px;overflow:hidden}
   .hero > img{width:100%;margin-bottom:12px}
   .hero-text img{width:100%;margin-bottom:12px}
