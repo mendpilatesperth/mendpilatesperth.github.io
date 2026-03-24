@@ -1,0 +1,74 @@
+:root{
+  --bg:#ffffff;
+  --fg:#0b0b0b;
+  --muted:#666666;
+  --gap:clamp(16px,2.8vw,32px);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Montserrat,system-ui,Segoe UI,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased}
+.site-header{position:static;z-index:50}
+.banner{display:flex;align-items:center;justify-content:space-between;padding:12px var(--gap);position:fixed;top:0;left:0;right:0;z-index:60;background:linear-gradient(0deg,rgba(255,255,255,0.95),rgba(255,255,255,0.9));backdrop-filter:blur(4px);border-bottom:1px solid rgba(0,0,0,0.06)}
+.logo svg{display:block}
+.top-menu{display:flex;gap:10px}
+.top-menu .menu-link{padding:8px 12px;display:inline-block;border-radius:6px;transition:background-color .15s ease;font-family:Montserrat,sans-serif;font-weight:500}
+.menu-btn{background:transparent;border:none;color:var(--fg);padding:8px 12px;font-size:16px;cursor:pointer;opacity:0.8;transition:background-color .15s ease, opacity .15s ease;font-family:Montserrat,sans-serif;font-weight:500}
+.menu-btn:hover{opacity:1;background:rgba(0,0,0,0.04)}
+
+.top-menu .menu-link:hover{background:rgba(0,0,0,0.04)}
+.menu-btn.active{font-weight:700;border-bottom:2px solid var(--fg);padding-bottom:6px}
+
+.content{max-width:1100px;margin:28px auto;padding:0 var(--gap);padding-top:var(--banner-height,140px)}
+.page{display:none}
+.page.active{display:block}
+.hero{margin-bottom:32px;overflow:visible}
+.hero > img{float:left;width:500px;height:auto;border-radius:8px;display:block;margin-right:18px}
+.hero-text img{float:right;width:40%;min-width:450px;margin-left:18px;margin-bottom:12px;border-radius:8px}
+.hero-text{overflow:visible}
+.stack{display:grid;gap:20px}
+article{background:transparent;padding:12px;border-radius:8px}
+
+/* Fade animations */
+.fade{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
+.fade.visible{opacity:1;transform:translateY(0)}
+
+/* Typography */
+h1{font-size:clamp(24px,3.5vw,40px);margin:0}
+h2{font-size:20px;margin:0 0 8px 0}
+p{color:var(--muted);line-height:1.6}
+.hero-text p:first-child{margin-top:0}
+
+/* Make images slightly desaturated to match monochrome theme */
+img{filter:grayscale(20%) contrast(95%)}
+
+/* Contact list styles */
+.contact-list{list-style:none;padding:0;margin:12px 0;display:flex;flex-direction:column;gap:10px}
+.contact-list li a{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--fg);padding:6px 8px;border-radius:6px}
+.contact-list li a svg{flex:0 0 28px;width:28px;height:28px}
+.contact-list li a span{display:inline-block;vertical-align:middle}
+.contact-list li a:hover{background:rgba(0,0,0,0.06)}
+
+/* Contact form styles */
+.contact-form{display:grid;gap:16px;margin-top:16px;max-width:500px}
+.form-group{display:grid;gap:6px}
+.form-group label{font-weight:500;font-size:14px}
+.form-group input,.form-group textarea{padding:10px 12px;border:1px solid var(--muted);border-radius:6px;background:transparent;color:var(--fg);font-family:inherit;font-size:14px;transition:border-color .2s ease}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--fg)}
+.form-note{font-size:13px;color:var(--muted);margin:0}
+.form-submit{padding:12px 24px;background:var(--fg);color:var(--bg);border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:16px;transition:opacity .2s ease}
+.form-submit:hover{opacity:0.8}
+
+#about ul, #about li {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+#about strong {
+  color: var(--muted);
+}
+
+img[src$="MendPilates-8.jpg"]{float:left;max-width:400px;width:40%;min-width:180px;height:auto;display:block;margin-right:18px;margin-bottom:12px;border-radius:8px}
+
+/* On small screens stack image above text */
+@media (max-width:720px){
+  img[src$="MendPilates-8.jpg"]{float:none;width:100%;min-width:0;margin-right:0;margin-bottom:12px;border-radius:8px}
+}
