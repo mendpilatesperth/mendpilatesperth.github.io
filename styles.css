@@ -68,6 +68,8 @@ img{filter:grayscale(20%) contrast(95%)}
 .form-submit{padding:12px 24px;background:var(--fg);color:var(--bg);border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:16px;transition:opacity .2s ease}
 .form-submit:hover{opacity:0.8}
 
+.abn-footer{position:fixed;bottom:20px;right:var(--gap);font-size:14px;color:var(--muted);font-family:Montserrat,sans-serif;z-index:40}
+
 #about ul, #about li {
   color: var(--muted);
 }
